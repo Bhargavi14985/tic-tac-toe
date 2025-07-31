@@ -1,0 +1,130 @@
+/*
+  This CSS file contains custom styles for the Tic Tac Toe game.
+  Tailwind CSS is used for most styling, but this file can be used
+  for any additional custom styles or overrides.
+*/
+
+
+/* Basic body styling for full height and centering */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Ensure body takes at least full viewport height */
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    /* Using Inter font as per instructions */
+}
+
+
+/* Custom styles for the game board cells */
+
+.cell {
+    /* Define colors for X and O marks */
+    color: #38b2ac;
+    /* Teal for X */
+    /* You can define a separate class for O if needed, or set it via JS */
+}
+
+.cell.player-x {
+    color: #38b2ac;
+    /* Teal for X */
+}
+
+.cell.player-o {
+    color: #fbbf24;
+    /* Amber for O */
+}
+
+
+/* Add some basic transitions for hover effects on cells */
+
+.cell:hover {
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+    /* Yellow glow on hover */
+}
+
+
+/* Styles for the reset button */
+
+#resetButton {
+    /* Add a subtle animation for the button */
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+    }
+}
+
+
+/* Strike Line Styles */
+
+#strikeLine {
+    height: 8px;
+    /* Fixed height for the line */
+    /* width, top, left, transform will be set by JS */
+    /* Initially hidden via 'hidden' class from Tailwind */
+}
+
+
+/* Celebration effect for the body */
+
+body.celebrate-win {
+    animation: celebrateBackground 1.5s ease-out forwards;
+}
+
+@keyframes celebrateBackground {
+    0% {
+        background-color: #1a202c;
+    }
+    /* Initial dark gray */
+    50% {
+        background-color: #3f51b5;
+    }
+    /* A celebratory blue */
+    100% {
+        background-color: #1a202c;
+    }
+    /* Back to dark gray */
+}
+
+
+/* Responsive adjustments for smaller screens */
+
+@media (max-width: 640px) {
+    .container {
+        padding: 1rem;
+        /* Reduce padding on smaller screens */
+    }
+    h1 {
+        font-size: 3rem;
+        /* Adjust heading size */
+    }
+    #status {
+        font-size: 1.5rem;
+        /* Adjust status text size */
+    }
+    .cell {
+        font-size: 4rem;
+        /* Adjust cell content size */
+    }
+    #resetButton {
+        padding: 0.75rem 1.5rem;
+        /* Adjust button padding */
+        font-size: 0.9rem;
+        /* Adjust button font size */
+    }
+}
